@@ -26,18 +26,23 @@ public class Point2d extends AbstractPoint {
 
     // TODO appliquer la transalation sur la classe courrante et retourner la reference
     public Point2d translate(Point2d translateVector) {
-        return translate(translateVector);
+        Double[] temp = {translateVector.X(), translateVector.Y()};
+        translate(temp);
+        return this;
     }
 
     // TODO appliquer la rotation sur la classe courrante et retourner la reference
     @Override
     public Point2d rotate(Double[][] rotationMatrix) {
-        return rotate(rotationMatrix);
+        PointOperator.rotate(vector, rotationMatrix);
+        return this;
     }
 
     // TODO appliquer la rotation sur la classe courrante et retourner la reference
     public Point2d rotate(Double angle) {
-        rotate(angle);
+        Double[][] temp = {{Math.cos(angle), -Math.sin(angle)},
+                           {Math.sin(angle), Math.cos(angle)}};
+        rotate(temp);
         return this;
     }
 
