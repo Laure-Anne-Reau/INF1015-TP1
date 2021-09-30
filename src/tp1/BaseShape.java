@@ -105,6 +105,7 @@ public class BaseShape implements Cloneable {
     // TODO donner la plus petite valeur en X
     public Double getMinX() {
         /*
+        coucou 
         Double minX = coords.get(0);
         // si pas de coords, maxX = undefined ?
         for(Point2d p:coords){
