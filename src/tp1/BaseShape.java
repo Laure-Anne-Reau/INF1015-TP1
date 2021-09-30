@@ -50,9 +50,13 @@ public class BaseShape implements Cloneable {
 
     // TODO retourner une nouvelle liste ou tous les points sont des copy
     public Collection<Point2d> getCoordsDeepCopy() {
-        BaseShape tempBaseShape = new BaseShape();
-        tempBaseShape.addAll(coords);          // Plus efficace qu'une forLoop et tempBaseShape.add(p).... Y a-t-il mieux ?
-        return tempBaseShape.getCoords();   //ne pas creer de BaseShape mais renvoyer une ArrayList ou Collection directement?
+        BaseShape newBaseShape = new BaseShape();
+
+        for (Point2d p : coords) {
+            newBaseShape.add(p.clone());
+        }
+
+        return newBaseShape.getCoords();
     }
 
     // TODO appliquer la translation sur la forme.
@@ -75,9 +79,10 @@ public class BaseShape implements Cloneable {
 
     // TODO donner la plus grande valeur en X
     public Double getMaxX() {
-        Double maxX = 0.0;
-        // si pas de coords, maxX = undefined ?
-        for(Point2d p:coords){
+        Iterator<Point2d> ite = coords.iterator();
+        Double maxX = ite.next().X();
+
+        for(Point2d p : coords){
             if(p.X() > maxX){
                 maxX = p.X();
             }
@@ -87,9 +92,10 @@ public class BaseShape implements Cloneable {
 
     // TODO donner la plus grande valeur en Y
     public Double getMaxY() {
-        Double maxY = 0.0;
-        // si pas de coords, maxY = undefined ?
-        for(Point2d p:coords){
+        Iterator<Point2d> ite = coords.iterator();
+        Double maxY = ite.next().Y();
+
+        for(Point2d p : coords){
             if(p.Y() > maxY){
                 maxY = p.Y();
             }
@@ -104,30 +110,37 @@ public class BaseShape implements Cloneable {
 
     // TODO donner la plus petite valeur en X
     public Double getMinX() {
-        /*
-        coucou 
-        Double minX = coords.get(0);
-        // si pas de coords, maxX = undefined ?
-        for(Point2d p:coords){
-            if(p.X() > minX){
+        Iterator<Point2d> ite = coords.iterator();
+        Double minX = ite.next().X();
+
+        for(Point2d p : coords) {
+            if(p.X() < minX){
                 minX = p.X();
             }
         }
-        return minX;*/
-        return null;
+        return minX;
     }
+
     // TODO donner la plus petite valeur en Y
     public Double getMinY() {
-        return null;
+        Iterator<Point2d> ite = coords.iterator();
+        Double minY = ite.next().Y();
+
+        for(Point2d p : coords) {
+            if(p.Y() < minY){
+                minY = p.Y();
+            }
+        }
+        return minY;
     }
 
     // TODO donner les plus petites valeurs en X et Y
     public Point2d getMinCoord() {
-        return null;
+        return new Point2d(getMinX(), getMinY());
     }
 
     // TODO retourner une nouvelle forme.
     public BaseShape clone() {
-        return this;
+        return new BaseShape(this.coords);
     }
 }
