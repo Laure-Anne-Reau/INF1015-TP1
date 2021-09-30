@@ -20,27 +20,27 @@ public class BaseShape implements Cloneable {
     // TODO ajouter ou retirer des coordonnees a la liste de points.
     public BaseShape add(Point2d coord) {
         coords.add(coord);
-        return null;
+        return this;
     }
     public BaseShape add(BaseShape shape) {
         coords.addAll(shape.getCoords());
-        return null;
+        return this;
     }
     public BaseShape addAll(Collection<Point2d> coords) {
         this.coords.addAll(coords);
-        return null;
+        return this;
     }
     public BaseShape remove(Point2d coord) {
         coords.remove(coord);
-        return null;
+        return this;
     }
     public BaseShape remove(BaseShape shape) {
         this.coords.removeAll(shape.getCoords());
-        return null;
+        return this;
     }
     public BaseShape removeAll(Collection<Point2d> coords) {
         this.coords.removeAll(coords);
-        return null;
+        return this;
     }
 
     // TODO retourner les coordonnees de la liste.
