@@ -20,7 +20,8 @@ public class Point2d extends AbstractPoint {
     // TODO appliquer la transalation sur la classe courrante et retourner la reference
     @Override
     public Point2d translate(Double[] translateVector) {
-        return translate(translateVector);
+        PointOperator.translate(vector, translateVector);
+        return this;
     }
 
     // TODO appliquer la transalation sur la classe courrante et retourner la reference
@@ -36,25 +37,29 @@ public class Point2d extends AbstractPoint {
 
     // TODO appliquer la rotation sur la classe courrante et retourner la reference
     public Point2d rotate(Double angle) {
-        return rotate(angle);
+        rotate(angle);
+        return this;
     }
 
     // TODO appliquer la division sur la classe courrante et retourner la reference
     @Override
     public Point2d divide(Double divider) {
-        return divide(divider);
+        PointOperator.divide(vector, divider);
+        return this;
     }
 
     // TODO appliquer la multiplication sur la classe courrante et retourner la reference
     @Override
     public Point2d multiply(Double multiplier) {
-        return multiply(multiplier);
+        PointOperator.multiply(vector, multiplier);
+        return this;
     }
 
     // TODO appliquer la addition sur la classe courrante et retourner la reference
     @Override
     public Point2d add(Double adder) {
-        return add(adder);
+        PointOperator.add(vector, adder);
+        return this;
     }
 
     // TODO creer un nouveau point.
