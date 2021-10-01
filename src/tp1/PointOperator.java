@@ -6,8 +6,9 @@ public final class PointOperator {
 
     // TODO appliquer la translation sur le vecteur d'entree.
     public static void translate(Double[] vector, Double[] translateVector) {
-        vector[0] += translateVector[0];
-        vector[1] += translateVector[1];
+        for(int i = 0; i < vector.length; i++ ) {
+            vector[i] += translateVector[i];
+        }
     }
 
     // TODO appliquer la translation sur le vecteur d'entree.
@@ -21,19 +22,22 @@ public final class PointOperator {
 
     // TODO appliquer la translation sur le vecteur d'entree.
     public static void divide(Double[] vector, Double divider) {
-        vector[0] /= divider;
-        vector[1] /= divider;
+        for(int i = 0; i < vector.length; i++ ) {
+            vector[i] /= divider;
+        }
     }
 
     // TODO appliquer la translation sur le vecteur d'entree.
     public static void multiply(Double[] vector, Double multiplier) {
-        vector[0] *= multiplier;
-        vector[1] *= multiplier;
+        for(int i = 0; i < vector.length; i++ ) {
+            vector[i] *= multiplier;
+        }
     }
 
     // TODO appliquer la translation sur le vecteur d'entree.
     public static void add(Double[] vector, Double adder) {
-        vector[0] += adder;
-        vector[1] += adder;
+        for(int i = 0; i < vector.length; i++ ) {
+            vector[i] += adder;
+        }
     }
 }
