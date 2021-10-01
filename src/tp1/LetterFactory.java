@@ -12,7 +12,21 @@ public final class LetterFactory {
 
     // TODO
     public static BaseShape create_e() {
-        return null;
+        BaseShape e = new BaseShape();
+        Ellipse ellipse = new Ellipse(new Point2d(halfMaxWidth, halfMaxHeight));
+        Rectangle rectangle = new Rectangle(new Point2d(maxWidth, stripeThickness));
+        Rectangle petitEspcace = new Rectangle(new Point2d(stripeThickness,stripeThickness));
+        Ellipse creux = new Ellipse(new Point2d(halfMaxWidth-halfStripeThickness, halfMaxHeight-stripeThickness));
+
+        rectangle.translate(new Point2d(-halfMaxWidth, -10.0));
+        petitEspcace.translate(new Point2d(halfMaxWidth-stripeThickness, stripeThickness-9.0));
+
+        e.add(ellipse);
+        e.remove(creux);
+        e.add(rectangle);
+        e.remove(petitEspcace);
+
+        return e;
     }
 
     // TODO
