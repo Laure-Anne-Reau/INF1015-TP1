@@ -65,7 +65,7 @@ public class BaseShape implements Cloneable {
         for(Point2d p:coords) {
             p.translate(point);
         }
-        return null;
+        return this;
     }
 
     // TODO appliquer la rotation sur la forme.
@@ -74,7 +74,7 @@ public class BaseShape implements Cloneable {
         for(Point2d p:coords) {
             p.rotate(angle);
         }
-        return null;
+        return this;
     }
 
     // TODO donner la plus grande valeur en X
