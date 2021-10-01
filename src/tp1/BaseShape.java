@@ -35,7 +35,8 @@ public class BaseShape implements Cloneable {
         return this;
     }
     public BaseShape remove(BaseShape shape) {
-        this.coords.removeAll(shape.getCoords());
+        //coords.removeAll(shape.getCoords());
+        removeAll(shape.getCoords());
         return this;
     }
     public BaseShape removeAll(Collection<Point2d> coords) {

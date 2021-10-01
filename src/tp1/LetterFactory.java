@@ -169,21 +169,24 @@ public final class LetterFactory {
         Rectangle rectangle = new Rectangle(halfStripeThickness, maxHeight);
         Circle cercleHaut = new Circle(halfMaxHeight/2);
         Circle cercleBas = new Circle(halfMaxHeight/2);
-        Rectangle demiCercle = new Rectangle(halfMaxHeight/2,maxHeight);
-        //Circle creux = new Circle((halfMaxHeight/2)-halfStripeThickness);
+        Circle creuxHaut = new Circle((halfMaxHeight/2)-halfStripeThickness);
+        Circle creuxBas = new Circle((halfMaxHeight/2)-halfStripeThickness);
+        Rectangle demiCercle = new Rectangle(halfMaxHeight/2, maxHeight);
 
-        demiCercle.translate(new Point2d(-maxWidth, -maxHeight));
-
-        cercleHaut.translate(new Point2d(-(maxWidth+halfStripeThickness), -(halfMaxHeight+halfMaxHeight/2)));
+        cercleHaut.translate(new Point2d(-(maxWidth+halfStripeThickness), 0.0));
         cercleBas.translate(new Point2d(-(maxWidth+halfStripeThickness), -(halfMaxHeight)));
-
-        rectangle.translate(new Point2d(-(maxWidth+halfMaxWidth), -maxHeight));
+        creuxHaut.translate(new Point2d(-(maxWidth+halfStripeThickness), 0.0));
+        creuxBas.translate(new Point2d(-(maxWidth+halfStripeThickness), -(halfMaxHeight)));
+        demiCercle.translate(new Point2d(-(maxWidth*2), -(maxHeight-halfMaxHeight/2)));
+        rectangle.translate(new Point2d(-(maxWidth+halfMaxWidth-10.0), -(halfMaxWidth*3.5+10.0)));
 
         B.add(cercleHaut);
-       // B.remove(creux);
+        B.remove(creuxHaut);
         B.add(cercleBas);
-        //B.remove(demiCercle);
-       // B.add(rectangle);
+        B.remove(creuxBas);
+        B.remove(demiCercle);
+        B.add(rectangle);
+
 
         return B;
     }
