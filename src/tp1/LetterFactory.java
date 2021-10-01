@@ -17,7 +17,15 @@ public final class LetterFactory {
 
     // TODO
     public static BaseShape create_a() {
-        return null;
+        BaseShape a = new BaseShape();
+        Rectangle rectangle = new Rectangle(maxWidth, maxHeight);
+        Ellipse ellipse = new Ellipse(new Point2d(halfMaxWidth, halfMaxHeight));
+
+        a.add(rectangle);
+        a.add(ellipse);
+
+        return a;
+
     }
 
     // TODO
@@ -27,15 +35,15 @@ public final class LetterFactory {
 
     // TODO
     public static BaseShape create_l() {
-        Rectangle l = new Rectangle(maxHeight , maxWidth);
+        Rectangle l = new Rectangle(maxWidth, maxHeight);
         return l;
     }
 
     // TODO
     public static BaseShape create_i() {
-        Rectangle iBase = new Rectangle(maxHeight , maxWidth);
-        Circle iPoint = new Circle(halfMaxWidth);
         BaseShape i = new BaseShape();
+        Rectangle iBase = new Rectangle(maxWidth, maxHeight);
+        Circle iPoint = new Circle(halfMaxWidth);
 
         i.add(iBase);
         i.add(iPoint);
@@ -50,9 +58,9 @@ public final class LetterFactory {
 
     // TODO
     public static BaseShape create_V() {
-        Rectangle rectangleGauche = new Rectangle(maxHeight, maxWidth);
-        Rectangle rectangleDroite = new Rectangle(maxHeight, maxWidth);
         BaseShape v = new BaseShape();
+        Rectangle rectangleGauche = new Rectangle(maxWidth, maxHeight);
+        Rectangle rectangleDroite = new Rectangle(maxWidth, maxHeight);
 
         rectangleGauche.rotate(100.0);
         rectangleDroite.rotate(50.0);
@@ -75,6 +83,18 @@ public final class LetterFactory {
 
     // TODO
     public static BaseShape create_B() {
-        return null;
+        BaseShape B = new BaseShape();
+        Rectangle rectangle = new Rectangle(maxWidth, maxHeight);
+        Circle cercleHaut = new Circle(halfMaxHeight/2);
+        Circle cercleBas = new Circle(halfMaxHeight/2);
+
+        rectangle.translate(new Point2d(-maxWidth, -maxHeight));
+        cercleHaut.translate(new Point2d(halfMaxWidth/4, -halfMaxHeight));
+
+        B.add(rectangle);
+        B.add(cercleHaut);
+        B.add(cercleBas);
+
+        return B;
     }
 }

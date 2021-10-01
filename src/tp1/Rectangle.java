@@ -10,8 +10,8 @@ public class Rectangle extends BaseShape {
     public Rectangle(Double width, Double height) {
         super();
 
-        for(double i = 0; i <= height; i += 0.5) {
-            for(double j = 0; j <= width; j += 0.5){
+        for(double i = 0; i <= width; i += 0.5) {
+            for(double j = 0; j <= height; j += 0.5){
                 add(new Point2d(i, j));
             }
         }
@@ -21,8 +21,8 @@ public class Rectangle extends BaseShape {
     public Rectangle(Point2d dimensions) {
         super();
 
-        for(double i = 0; i <= dimensions.Y(); i += 0.5) {
-            for(double j = 0; j <= dimensions.X(); j += 0.5){
+        for(double i = 0; i <= dimensions.X(); i += 0.5) {
+            for(double j = 0; j <= dimensions.Y(); j += 0.5){
                 add(new Point2d(i, j));
             }
         }
