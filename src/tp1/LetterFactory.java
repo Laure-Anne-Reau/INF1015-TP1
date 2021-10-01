@@ -35,15 +35,18 @@ public final class LetterFactory {
 
     // TODO
     public static BaseShape create_l() {
-        Rectangle l = new Rectangle(maxWidth, maxHeight);
+        Rectangle l = new Rectangle(stripeThickness, maxHeight);
         return l;
     }
 
     // TODO
     public static BaseShape create_i() {
         BaseShape i = new BaseShape();
-        Rectangle iBase = new Rectangle(maxWidth, maxHeight);
-        Circle iPoint = new Circle(halfMaxWidth);
+        Rectangle iBase = new Rectangle(stripeThickness, halfMaxHeight + (halfMaxHeight/2) );
+        Circle iPoint = new Circle(halfStripeThickness);
+
+        iBase.translate(new Point2d(0.0, halfMaxHeight/2));
+        iPoint.translate(new Point2d(halfStripeThickness, 0.0));
 
         i.add(iBase);
         i.add(iPoint);
@@ -59,8 +62,8 @@ public final class LetterFactory {
     // TODO
     public static BaseShape create_V() {
         BaseShape v = new BaseShape();
-        Rectangle rectangleGauche = new Rectangle(maxWidth, maxHeight);
-        Rectangle rectangleDroite = new Rectangle(maxWidth, maxHeight);
+        Rectangle rectangleGauche = new Rectangle(stripeThickness, maxHeight);
+        Rectangle rectangleDroite = new Rectangle(stripeThickness, maxHeight);
 
         rectangleGauche.rotate(100.0);
         rectangleDroite.rotate(50.0);
@@ -84,7 +87,7 @@ public final class LetterFactory {
     // TODO
     public static BaseShape create_B() {
         BaseShape B = new BaseShape();
-        Rectangle rectangle = new Rectangle(maxWidth, maxHeight);
+        Rectangle rectangle = new Rectangle(stripeThickness, maxHeight);
         Circle cercleHaut = new Circle(halfMaxHeight/2);
         Circle cercleBas = new Circle(halfMaxHeight/2);
 
