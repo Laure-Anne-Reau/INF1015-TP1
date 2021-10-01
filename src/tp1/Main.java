@@ -11,15 +11,15 @@ public class Main {
         System.out.println("Bienvenue au premier labo de INF2010!");
         LetterPlacer letterPlacer = new LetterPlacer();
         letterPlacer.placeNext('l');
-        letterPlacer.placeNext('a');
+        /*letterPlacer.placeNext('a');
         letterPlacer.placeNextln('B');
-        letterPlacer.placeNext('e');
+        letterPlacer.placeNext('e');*/
         letterPlacer.placeNext('l');
         letterPlacer.placeNext('l');
-        letterPlacer.placeNext('e');
+        //letterPlacer.placeNext('e');
         letterPlacer.placeNextln('V');
         letterPlacer.placeNext('i');
-        letterPlacer.placeNext('e');
+        /*letterPlacer.placeNext('e');*/
         File imgFile = letterPlacer.saveImage("image", false);
         Desktop dt = Desktop.getDesktop();
         dt.open(imgFile);
