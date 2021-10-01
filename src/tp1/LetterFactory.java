@@ -120,12 +120,47 @@ public final class LetterFactory {
 
     // TODO
     public static BaseShape create_n() {
-        return null;
+        BaseShape n = new BaseShape();
+        Rectangle longueBarre = new Rectangle(new Point2d(halfStripeThickness,maxHeight-(maxHeight/3)));
+        Rectangle petiteBarre = new Rectangle(new Point2d(halfStripeThickness-2.5,halfMaxHeight-15.0));
+        Rectangle demiEllipse = new Rectangle(new Point2d(maxHeight,halfMaxWidth));
+        Ellipse ellipse = new Ellipse(new Point2d(halfMaxHeight-45.0, halfMaxWidth));
+        Ellipse creux = new Ellipse(new Point2d(halfMaxHeight-30.0-stripeThickness, halfMaxWidth-halfStripeThickness));
+
+        longueBarre.translate(new Point2d(-maxWidth, maxHeight));
+        petiteBarre.translate(new Point2d(halfMaxWidth-stripeThickness+7.5,maxHeight+48.0));
+        demiEllipse.translate(new Point2d(-maxWidth, maxHeight+55.0));
+        ellipse.translate(new Point2d(-stripeThickness+2.5, maxHeight+50.0));
+        creux.translate(new Point2d(-stripeThickness+2.5, maxHeight+50.0));
+
+        n.add(ellipse);
+        n.remove(creux);
+        n.remove(demiEllipse);
+        n.add(longueBarre);
+        n.add(petiteBarre);
+
+        return n;
     }
 
     // TODO
     public static BaseShape create_r() {
-        return null;
+        BaseShape r = new BaseShape();
+        Rectangle longueBarre = new Rectangle(new Point2d(halfStripeThickness,maxHeight-(maxHeight/3)));
+        Rectangle demiEllipse = new Rectangle(new Point2d(maxHeight,halfMaxWidth));
+        Ellipse ellipse = new Ellipse(new Point2d(halfMaxHeight-45.0, halfMaxWidth));
+        Ellipse creux = new Ellipse(new Point2d(halfMaxHeight-30.0-stripeThickness, halfMaxWidth-halfStripeThickness));
+
+        longueBarre.translate(new Point2d(-maxWidth, maxHeight));
+        demiEllipse.translate(new Point2d(-maxWidth, maxHeight+55.0));
+        ellipse.translate(new Point2d(-stripeThickness+2.5, maxHeight+50.0));
+        creux.translate(new Point2d(-stripeThickness+2.5, maxHeight+50.0));
+
+        r.add(ellipse);
+        r.remove(creux);
+        r.remove(demiEllipse);
+        r.add(longueBarre);
+
+        return r;
     }
 
     // TODO
