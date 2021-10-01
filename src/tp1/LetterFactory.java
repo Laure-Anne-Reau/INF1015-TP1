@@ -47,7 +47,18 @@ public final class LetterFactory {
 
     // TODO
     public static BaseShape create_C() {
-        return null;
+        BaseShape C = new BaseShape();
+        Ellipse ellipse = new Ellipse(new Point2d(halfMaxWidth, halfMaxHeight));
+        Ellipse creux = new Ellipse(new Point2d(halfMaxWidth-halfStripeThickness, halfMaxHeight-stripeThickness));
+        Rectangle espace = new Rectangle(new Point2d(stripeThickness, halfMaxHeight+halfStripeThickness));
+
+        espace.translate(new Point2d(halfMaxWidth-stripeThickness, -halfMaxHeight/2));
+
+        C.add(ellipse);
+        C.remove(creux);
+        C.remove(espace);
+
+        return C;
     }
 
     // TODO
@@ -73,7 +84,21 @@ public final class LetterFactory {
 
     // TODO
     public static BaseShape create_A() {
-        return null;
+        BaseShape A = new BaseShape();
+        Rectangle rectangleGauche = new Rectangle(halfStripeThickness, maxHeight);
+        Rectangle rectangleDroite = new Rectangle(halfStripeThickness, maxHeight);
+        Rectangle tiret = new Rectangle(halfMaxWidth+stripeThickness, halfStripeThickness);
+
+        rectangleGauche.rotate(-50.0);
+        rectangleDroite.rotate(50.0);
+        rectangleDroite.translate(new Point2d(halfStripeThickness+2.5, 2.5));
+        tiret.translate(new Point2d(-stripeThickness, halfMaxHeight));
+
+        A.add(rectangleGauche);
+        A.add(rectangleDroite);
+        A.add(tiret);
+
+        return A;
     }
 
     // TODO
